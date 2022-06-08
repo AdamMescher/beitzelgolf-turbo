@@ -6,7 +6,10 @@ Welcome to the auth file! Here we have put a config to do basic auth in Keystone
 
 For more on auth, check out: https://keystonejs.com/docs/apis/auth#authentication-api
 */
-
+import dotenv from 'dotenv';
+dotenv.config({
+  path: '../../.env',
+});
 import { createAuth } from '@keystone-6/auth';
 
 // See https://keystonejs.com/docs/apis/session#session-api for the session docs

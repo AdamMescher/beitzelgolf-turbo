@@ -22,5 +22,6 @@
       "dependsOn": ["build", "test", "lint"],
       "outputs": []
     }
-  }
+  },
+  "globalDependencies": [".env"]
 }
