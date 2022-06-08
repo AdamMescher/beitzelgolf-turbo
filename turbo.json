@@ -3,7 +3,8 @@
     "build": {
       "outputs": [
         "dist/**",
-        ".next/**"
+        ".next/**",
+        ".keystone/admin/.next/**"
       ],
       "dependsOn": [
         "^build"
