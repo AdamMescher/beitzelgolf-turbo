@@ -1,4 +1,5 @@
 {
+  "name": "beitzel-golf",
   "private": true,
   "workspaces": [
     "packages/*",
