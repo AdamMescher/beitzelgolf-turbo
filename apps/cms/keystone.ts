@@ -6,7 +6,9 @@ export default withAuth(
   config({
     db: {
       provider: 'postgresql',
-      url: process.env.DATABASE_URL,
+      url:
+        process.env.DATABASE_URL ||
+        `postgres://${process.env.USER}@localhost/beitzelgolf`,
       enableLogging: true,
       useMigrations: true,
       idField: { kind: 'uuid' },
