@@ -1,1 +1,0 @@
-web: cd apps/cms && yarn deploy
