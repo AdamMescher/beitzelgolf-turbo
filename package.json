@@ -1,5 +1,5 @@
 {
-  "name": "beitzel-golf",
+  "name": "beitzelgolf-turbo",
   "private": true,
   "workspaces": [
     "packages/*",
