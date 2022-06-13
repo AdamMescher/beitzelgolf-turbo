@@ -1,19 +1,31 @@
 import { config } from '@keystone-6/core';
+import { statelessSessions } from '@keystone-6/core/session';
+import { createAuth } from '@keystone-6/auth';
 import { lists } from './schema';
-import { withAuth, session } from './auth';
+import { PORT, DATABASE_URL, SESSION_MAX_AGE, SESSION_SECRET } from './config';
+
+const { withAuth } = createAuth({
+  listKey: 'Person',
+  identityField: 'email',
+  secretField: 'password',
+  initFirstItem: {
+    fields: ['name', 'email', 'password'],
+  },
+});
+
+const session = statelessSessions({
+  maxAge: SESSION_MAX_AGE,
+  secret: SESSION_SECRET,
+});
 
 export default withAuth(
   config({
     db: {
       provider: 'postgresql',
-      url: process.env.DATABASE_URL,
-      enableLogging: true,
       useMigrations: true,
-      idField: { kind: 'uuid' },
+      url: DATABASE_URL,
     },
-    ui: {
-      isAccessAllowed: (context) => !!context.session?.data,
-    },
+    server: { port: PORT },
     lists,
     session,
   })
