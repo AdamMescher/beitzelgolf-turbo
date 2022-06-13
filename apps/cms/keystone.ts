@@ -5,7 +5,7 @@ import { lists } from './schema';
 import { PORT, DATABASE_URL, SESSION_MAX_AGE, SESSION_SECRET } from './config';
 
 const { withAuth } = createAuth({
-  listKey: 'Person',
+  listKey: 'User',
   identityField: 'email',
   secretField: 'password',
   initFirstItem: {
